@@ -1,8 +1,14 @@
 meta:
   environment: python
-  version: "3.10" # or your preferred version
+  toolchain:
+    name: pip
+    version: "3.13"
 build:
-  - pip install -r requirements.txt
+  requirementsPath: requirements.txt
+  useCache: true
 run:
-  - python your_bot_file.py
+  persistenceMount: /data
+  scriptName: F SMART BOT/Final smart bot.py
+  containerPort: 80
+  servicePort: 80
   
